@@ -1,8 +1,10 @@
 package com.example.card.domain.entity;
 
+import com.example.card.config.constants.CardCheck;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -30,7 +32,8 @@ public class Card {
     private String cardCVC;
 
     @Column(name = "CARD_CHECK")
-    private Enum cardCheck;
+    @Enumerated(EnumType.STRING)
+    private CardCheck cardCheck;
 
     @Column(name ="USER_ID")
     private UUID userId;
@@ -40,5 +43,8 @@ public class Card {
 
     @Column(name = "CARD_ANNUAl_FEE")
     private String cardAnnualFee;
+
+    @Column(name = "CARD_VALIDITY")
+    private Date cardValidity;
 
 }
