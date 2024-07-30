@@ -17,4 +17,6 @@ public interface CardProductService {
     CardProductResponse getCardNameCardImgCardAnnualFeeCardBenefitByCardID(long cardProductId);
 
     List<CardProduct> getAllCardProduct();
+
+    CardProduct getCardProductById(Long cardProductId);
 }

@@ -5,6 +5,8 @@ import com.example.card.domain.dto.request.CardUpdateRequest;
 import com.example.card.domain.dto.request.CardRequest;
 import com.example.card.domain.dto.response.CardProductCardResponse;
 
+import com.example.card.domain.entity.Card;
+import java.util.List;
 import java.util.UUID;
 
 public interface CardService {
@@ -13,4 +15,7 @@ public interface CardService {
     void deleteCard(UUID userId, String cardNumber);
     CardProductCardResponse getCardCardProductByCardID(long cardId);
 
+    List<Card> getAllMyCard(UUID userId);
+
+    Card getMyCard(Long cardId);
 }

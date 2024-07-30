@@ -9,6 +9,8 @@ import com.example.card.domain.dto.request.CardRequest;
 import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.domain.repository.CardRepository;
+import jakarta.persistence.EntityNotFoundException;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,10 +29,15 @@ public class CardServiceImpl implements CardService {
     private final CardDao cardDao;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
+    @Override
+    public List<Card> getAllMyCard(UUID userId) {
+        return cardRepository.findByUserId(userId);
+    }
 
-
-
-
+    @Override
+    public Card getMyCard(Long cardId) {
+        return cardRepository.findByCardId(cardId).orElseThrow(EntityNotFoundException::new);
+    }
 
     @Override
     public void addCard(TokenInfo tokenInfo, CardRequest req) {

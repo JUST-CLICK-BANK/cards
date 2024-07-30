@@ -5,6 +5,7 @@ import com.example.card.domain.dto.response.CardProductResponse;
 import com.example.card.domain.entity.CardProduct;
 import com.example.card.service.CardProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +18,21 @@ import java.util.Optional;
 public class CardProductController {
     private final CardProductService cardProductService;
 
-    @QueryMapping(name = "getAllCard")
-    public List<CardProduct> getAllCard() {
+    // TODO POST 요청으로 BODY 에 다음을 넣어줘야함
+    // Get. 카드 상품 전체 목록 불러오기
+    @QueryMapping(name = "getAllCardProduct")
+    public List<CardProduct> getAllCardProduct() {
+//  TODO { "query": "query { getAllCard { cardProductId cardImg cardProductName } }" }
         return cardProductService.getAllCardProduct();
+    }
+
+    // Get. 카드 상품 상세 정보 불러오기
+    @QueryMapping(name = "getCardProduct")
+    public CardProduct getCardProduct(@Argument Long cardProductId) {
+//  TODO { "query": "query {getCardProduct(cardProductId:1){
+//   cardProductId cardImg cardProductName cardAnnualFee cardBenefits
+//   }}" }
+        return cardProductService.getCardProductById(cardProductId);
     }
 
     @PostMapping
@@ -31,23 +44,28 @@ public class CardProductController {
     public void deleteCardProduct(@PathVariable Long cardProductId) {
         cardProductService.deleteCardProduct(cardProductId);
     }
-    //카드 id로 카드 이미지 불러옴(CardComplete페이지)
-    @GetMapping("/image/{cardProductId}")
-    public String getCardImgBycardID(@PathVariable("cardProductId") long cardProductId){
-        return cardProductService.getCardImgBycardID(cardProductId);
 
-    }
+    // TODO CardController 에서 getAllMyCard()로 대체
+    //카드 id로 카드 이미지 불러옴(CardComplete페이지)
+    // @GetMapping("/image/{cardProductId}")
+    // public String getCardImgBycardID(@PathVariable("cardProductId") long cardProductId){
+    //     return cardProductService.getCardImgBycardID(cardProductId);
+    // }
+
+    // TODO getAllCardProduct()로 대체
     //카드 이미지 전체 불러오기(AddCardList페이지)
-    @GetMapping("/images")
-    public List<String> getAllCardImages() {
-        return cardProductService.getAllCardImages();
-    }
-    //카드상품 아이디로 카드상품이름,연회비,카드 이미지,카드 적립률(cardInformation페이지)
-    @GetMapping("/{cardProductId}")
-    public Optional<CardProductResponse> getCardBycardID(@PathVariable("cardProductId") long cardProductId) {
-        CardProductResponse cardProductResponse = cardProductService.getCardNameCardImgCardAnnualFeeCardBenefitByCardID(cardProductId);
-        return Optional.of(cardProductResponse);
-    }
+    // @GetMapping("/images")
+    // public List<String> getAllCardImages() {
+    //     return cardProductService.getAllCardImages();
+    // }
+
+    // TODO getCardProduct(cardProductId)로 대체
+    //카드상품 아이디로 카드상품이름,연회비,카드 이미지,카드 적립률(cardInformation 페이지)
+    // @GetMapping("/{cardProductId}")
+    // public Optional<CardProductResponse> getCardBycardID(@PathVariable("cardProductId") long cardProductId) {
+    //     CardProductResponse cardProductResponse = cardProductService.getCardNameCardImgCardAnnualFeeCardBenefitByCardID(cardProductId);
+    //     return Optional.of(cardProductResponse);
+    // }
 
 
 }

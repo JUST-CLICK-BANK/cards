@@ -22,6 +22,11 @@ public class CardProductServiceImpl implements  CardProductService{
     }
 
     @Override
+    public CardProduct getCardProductById(Long cardProductId) {
+        return cardProductRepository.findById(cardProductId).orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
     public void addCardProduct(CardProductRequest  req){
         CardProduct cardProduct = req.toEntity();
          cardProductRepository.save(cardProduct);
