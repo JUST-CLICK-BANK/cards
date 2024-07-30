@@ -17,6 +17,11 @@ public class CardProductServiceImpl implements  CardProductService{
     private final CardProductRepository cardProductRepository;
 
     @Override
+    public List<CardProduct> getAllCardProduct() {
+        return cardProductRepository.findAll();
+    }
+
+    @Override
     public void addCardProduct(CardProductRequest  req){
         CardProduct cardProduct = req.toEntity();
          cardProductRepository.save(cardProduct);

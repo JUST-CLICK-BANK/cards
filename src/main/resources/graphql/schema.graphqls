@@ -1,0 +1,15 @@
+schema {
+    query: Query,
+}
+
+type Query {
+    getAllCard: [CardProduct]!
+}
+
+type CardProduct {
+    cardProductId: Int!
+    cardProductName: String!
+    cardAnnualFee: Int
+    cardImg: String
+    cardBenefits: String
+}

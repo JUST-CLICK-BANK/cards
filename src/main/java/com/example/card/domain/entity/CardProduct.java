@@ -19,13 +19,13 @@ public class CardProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CARD_PRODUCT_ID")
-    private long cardProductId;
+    private Long cardProductId;
 
     @Column(name = "CARD_PRODUCT_NAME")
     private String cardProductName;
 
     @Column(name = "CARD_ANNUAL_FEE")
-    private String cardAnnualFee;
+    private Long cardAnnualFee;
 
 
     @Column(name = "CARD_IMG")

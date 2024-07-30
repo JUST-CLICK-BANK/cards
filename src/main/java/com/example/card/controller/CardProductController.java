@@ -2,8 +2,10 @@ package com.example.card.controller;
 
 import com.example.card.domain.dto.request.CardProductRequest;
 import com.example.card.domain.dto.response.CardProductResponse;
+import com.example.card.domain.entity.CardProduct;
 import com.example.card.service.CardProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +16,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CardProductController {
     private final CardProductService cardProductService;
+
+    @QueryMapping(name = "getAllCard")
+    public List<CardProduct> getAllCard() {
+        return cardProductService.getAllCardProduct();
+    }
 
     @PostMapping
     public void createCardProduct(@RequestBody CardProductRequest cardProductRequest) {

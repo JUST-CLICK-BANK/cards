@@ -6,7 +6,7 @@ import lombok.Builder;
 @Builder
 public record CardProductResponse(
         String cardProductName,
-        String cardAnnualFee,
+        Long cardAnnualFee,
         String cardImg,
         String cardBenefits
 

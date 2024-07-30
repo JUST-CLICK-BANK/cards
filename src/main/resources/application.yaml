@@ -10,6 +10,14 @@ spring:
       ddl-auto: create
     show-sql: true
 
+  graphql:
+    servlet:
+      path: /graphql
+    tools:
+      schema-location-pattern: classpath:graphql/**/*.graphqls
+  graphiql:
+    endpoint: /graphql
+    enabled: true
 
 jwt:
   secret: thisispublickeythisispublickeythisispublickeythisispublickey

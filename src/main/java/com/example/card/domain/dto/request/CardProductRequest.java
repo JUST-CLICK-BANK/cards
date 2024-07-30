@@ -4,7 +4,7 @@ import com.example.card.domain.entity.CardProduct;
 
 public record CardProductRequest (
         String cardProductName,
-        String cardAnnualFee,
+        Long cardAnnualFee,
         String cardImg,
         String cardBenefits
 ){

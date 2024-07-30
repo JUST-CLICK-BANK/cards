@@ -19,7 +19,7 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CARD_ID")
-    private long cardId;
+    private Long cardId;
 
     @Setter
     @Column(name = "CARD_NAME")
@@ -48,7 +48,7 @@ public class Card {
     private Long cardMonthLimit;
 
     @Column(name = "CARD_ANNUAl_FEE")
-    private String cardAnnualFee;
+    private Long cardAnnualFee;
 
 //    @Column(name = "CARD_VALIDITY")
 //    private Date cardValidity;
