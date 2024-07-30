@@ -1,4 +1,19 @@
 package com.example.card.domain.dto.request;
 
-public class CardProductRequest {
+import com.example.card.domain.entity.CardProduct;
+
+public record CardProductRequest (
+        String cardProductName,
+        String cardAnnualFee,
+        String cardImg,
+        String cardBenefits
+){
+   public CardProduct toEntity() {
+       return CardProduct.builder()
+               .cardProductName(cardProductName)
+               .cardAnnualFee(cardAnnualFee)
+               .cardImg(cardImg)
+               .cardBenefits(cardBenefits)
+               .build();
+   }
 }
