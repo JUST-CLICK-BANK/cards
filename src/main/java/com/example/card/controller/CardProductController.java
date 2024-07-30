@@ -1,12 +1,10 @@
 package com.example.card.controller;
 
+import com.example.card.domain.dto.request.CardProductRequest;
 import com.example.card.domain.dto.response.CardProductResponse;
 import com.example.card.service.CardProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,8 +14,18 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CardProductController {
     private final CardProductService cardProductService;
+
+    @PostMapping
+    public void createCardProduct(@RequestBody CardProductRequest cardProductRequest) {
+        cardProductService.addCardProduct(cardProductRequest);
+    }
+
+    @DeleteMapping("/{cardProductId}")
+    public void deleteCardProduct(@PathVariable Long cardProductId) {
+        cardProductService.deleteCardProduct(cardProductId);
+    }
     //카드 id로 카드 이미지 불러옴(CardComplete페이지)
-    @GetMapping("/image")
+    @GetMapping("/image/{cardProductId}")
     public String getCardImgBycardID(@PathVariable("cardProductId") long cardProductId){
         return cardProductService.getCardImgBycardID(cardProductId);
 

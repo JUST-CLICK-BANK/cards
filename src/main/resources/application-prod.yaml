@@ -2,12 +2,12 @@ spring:
   application:
     name: card
   datasource:
-    url: jdbc:postgresql://card-postgres-card:5432/click?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:postgresql://card-postgres-card:5432/click_card?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: {user}
     password: {password}
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 
 jwt:
