@@ -9,8 +9,24 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:springboot-storage-key.json
+        project-id: vibrant-depth-424101-m7
+        bucket: cardimg_bucket
 
+#          location: classpath:springboot-storage-key.json
+#        project-id: vibrant-depth-424101-m7
+#        bucket:  cardimg_bucket
 
 jwt:
   secret: thisispublickeythisispublickeythisispublickeythisispublickey
-  expiration: 86400000
+
+#  expiration: 86400000
+
+
+
+
+
