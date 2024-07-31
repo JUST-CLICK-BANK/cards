@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/card")
+@RequestMapping("/api/v1/cards")
 @RequiredArgsConstructor
 public class CardController {
     private final CardService cardService;
