@@ -7,6 +7,8 @@ import com.example.card.domain.dto.request.CardUpdateRequest;
 import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.service.CardService;
+import graphql.GraphQLContext;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -25,8 +27,11 @@ public class CardController {
     private final JwtUtils jwtUtils;
 
     @QueryMapping(name = "getAllMyCard")
-    public List<Card> getAllMyCard(@Argument UUID userId) {
-        return cardService.getAllMyCard(userId);
+    public List<Card> getAllMyCard(GraphQLContext context) {
+        String bearerToken = context.get("Authorization");
+        String token = bearerToken.substring(7);
+        TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
+        return cardService.getAllMyCard(tokenInfo);
     }
 
     @QueryMapping(name = "getMyCard")

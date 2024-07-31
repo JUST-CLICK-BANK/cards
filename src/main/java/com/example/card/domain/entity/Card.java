@@ -17,7 +17,7 @@ import java.util.UUID;
 @Table(name = "CARDS")
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CARD_ID")
     private Long cardId;
 

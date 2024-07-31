@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "CARD_PRODUCTS")
 public class CardProduct {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CARD_PRODUCT_ID")
     private Long cardProductId;
 

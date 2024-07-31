@@ -30,8 +30,8 @@ public class CardServiceImpl implements CardService {
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     @Override
-    public List<Card> getAllMyCard(UUID userId) {
-        return cardRepository.findByUserId(userId);
+    public List<Card> getAllMyCard(TokenInfo tokenInfo) {
+        return cardRepository.findByUserId(UUID.fromString(tokenInfo.id()));
     }
 
     @Override

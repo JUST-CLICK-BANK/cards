@@ -2,12 +2,12 @@ spring:
   application:
     name: card
   datasource:
-    url: jdbc:postgresql://localhost:5432/click?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:postgresql://localhost:5432/click-card?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: postgres
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 
   graphql:
@@ -15,9 +15,9 @@ spring:
       path: /graphql
     tools:
       schema-location-pattern: classpath:graphql/**/*.graphqls
-  graphiql:
-    endpoint: /graphql
-    enabled: true
+    graphiql:
+      endpoint: /graphiql
+      enabled: true
 
 jwt:
   secret: thisispublickeythisispublickeythisispublickeythisispublickey

@@ -15,7 +15,7 @@ public interface CardService {
     void deleteCard(UUID userId, String cardNumber);
     CardProductCardResponse getCardCardProductByCardID(long cardId);
 
-    List<Card> getAllMyCard(UUID userId);
+    List<Card> getAllMyCard(TokenInfo tokenInfo);
 
     Card getMyCard(Long cardId);
 }

@@ -9,7 +9,7 @@ schema {
 type Query {
     getAllCardProduct: [CardProduct]
     getCardProduct(cardProductId: Long): CardProduct
-    getAllMyCard(userId: UUID): [Card]
+    getAllMyCard: [Card]
     getMyCard(cardId: Long): Card
 }
 
@@ -26,7 +26,7 @@ type Card {
     cardAnnualFee: Long
     cardPassword: String
     cardDisable: Boolean
-    cardCreatedAt: Date
+    cardCreatedAt: String
     cardProduct: CardProduct
     cardTransportation: CardTransportation
 }
