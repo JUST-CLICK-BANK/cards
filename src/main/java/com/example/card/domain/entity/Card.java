@@ -57,6 +57,9 @@ public class Card {
     @Setter
     private String cardPassword;
 
+    @Column(name = "CARD_SALT")
+    private String cardSalt;
+
     @Column(name = "CARD_DISABLE")
     @Setter
     private Boolean cardDisable;
