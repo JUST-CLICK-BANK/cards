@@ -38,6 +38,16 @@ private final Storage storage;
         this.storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
     }
     @Override
+    public List<CardProduct> getAllCardProduct() {
+        return cardProductRepository.findAll();
+    }
+
+    @Override
+    public CardProduct getCardProductById(Long cardProductId) {
+        return cardProductRepository.findById(cardProductId).orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
     public void addCardProduct(CardProductRequest  req){
         CardProduct cardProduct = req.toEntity();
         // 이미지 파일 업로드

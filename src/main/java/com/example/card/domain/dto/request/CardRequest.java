@@ -23,7 +23,7 @@ public record CardRequest (
             Long cardMonthLimit,
             UUID userId,
             String cardCVC,
-            String cardAnnualFee,
+            Long cardAnnualFee,
             Date cardCreatedAt,
             String cardName,
             CardProduct cardproduct,

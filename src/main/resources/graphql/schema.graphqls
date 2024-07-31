@@ -1,0 +1,50 @@
+scalar Date
+scalar UUID
+scalar Long
+
+schema {
+    query: Query,
+}
+
+type Query {
+    getAllCardProduct: [CardProduct]
+    getCardProduct(cardProductId: Long): CardProduct
+    getAllMyCard: [Card]
+    getMyCard(cardId: Long): Card
+}
+
+type Card {
+    cardId: Long,
+    cardName: String
+    cardNumber: String
+    cardOneTimeLimit: Long
+    account: String
+    cardCVC: String
+    cardCheck: CardCheck
+    userId: UUID
+    cardMonthLimit: Long
+    cardAnnualFee: Long
+    cardPassword: String
+    cardDisable: Boolean
+    cardCreatedAt: String
+    cardProduct: CardProduct
+    cardTransportation: CardTransportation
+}
+
+type CardProduct {
+    cardProductId: Long
+    cardProductName: String
+    cardAnnualFee: Long
+    cardImg: String
+    cardBenefits: String
+}
+
+enum CardTransportation {
+    POSTPAID
+    PREPAYMENT
+}
+
+enum CardCheck {
+    CREDIT
+    CHECK
+}

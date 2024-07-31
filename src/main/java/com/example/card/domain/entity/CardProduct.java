@@ -14,15 +14,15 @@ import lombok.*;
 @Table(name = "CARD_PRODUCTS")
 public class CardProduct {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CARD_PRODUCT_ID")
-    private long cardProductId;
+    private Long cardProductId;
 
     @Column(name = "CARD_PRODUCT_NAME")
     private String cardProductName;
 
     @Column(name = "CARD_ANNUAL_FEE")
-    private String cardAnnualFee;
+    private Long cardAnnualFee;
 
     @Setter
     @Column(name = "CARD_IMG")

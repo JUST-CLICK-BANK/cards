@@ -7,7 +7,12 @@ import com.example.card.domain.dto.request.CardUpdateRequest;
 import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.service.CardService;
+import graphql.GraphQLContext;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +25,19 @@ import java.util.UUID;
 public class CardController {
     private final CardService cardService;
     private final JwtUtils jwtUtils;
+
+    @QueryMapping(name = "getAllMyCard")
+    public List<Card> getAllMyCard(GraphQLContext context) {
+        String bearerToken = context.get("Authorization");
+        String token = bearerToken.substring(7);
+        TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
+        return cardService.getAllMyCard(tokenInfo);
+    }
+
+    @QueryMapping(name = "getMyCard")
+    public Card getMyCard(@Argument Long cardId) {
+        return cardService.getMyCard(cardId);
+    }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
@@ -46,11 +64,13 @@ public class CardController {
         cardService.deleteCard(UUID.fromString(tokenInfo.id()),cardNumber);
 
     }
+
+    // TODO getMyCard()로 대체
     //카드 아이디로 카드이름,카드상품 이미지,카드번호,계좌 번호(MyCardInformation페이지)
-    @GetMapping("/{cardId}")
-    public Optional<CardProductCardResponse> getCardProduct(@PathVariable long cardId) {
-            CardProductCardResponse cardProductCardResponse = cardService.getCardCardProductByCardID(cardId);
-            return Optional.ofNullable(cardProductCardResponse);
-    }
+    // @GetMapping("/{cardId}")
+    // public Optional<CardProductCardResponse> getCardProduct(@PathVariable long cardId) {
+    //         CardProductCardResponse cardProductCardResponse = cardService.getCardCardProductByCardID(cardId);
+    //         return Optional.ofNullable(cardProductCardResponse);
+    // }
 
 }

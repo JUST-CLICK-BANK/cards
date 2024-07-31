@@ -33,7 +33,7 @@ public class CardDaoImpl implements CardDao{
                         1000000L,
                         userId,
                         cardCVC,
-                        "100000",
+                        100000L,
                         cardCreatedAt,
                         cardName+"의 카드",
                         cardProduct,

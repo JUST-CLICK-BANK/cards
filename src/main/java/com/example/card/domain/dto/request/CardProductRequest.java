@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public record CardProductRequest (
         String cardProductName,
-        String cardAnnualFee,
+        Long cardAnnualFee,
         MultipartFile cardImg,
         String cardBenefits
 ){
