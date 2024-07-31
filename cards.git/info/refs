@@ -1,0 +1,7 @@
+65c4b8ef3dce037c6f6f33a504302e61d8502135	refs/heads/dev
+621d6b357fd4388091d44c2c4350d22b20ea712d	refs/heads/feature/cardProduct-entity
+fe6cbd90ebb3abe53c82a1022e5a9f69475187b5	refs/heads/feature/create,delete-cardProduct
+c008373f1c291797ed2a9d29be4597aead807650	refs/heads/feature/graphql
+7d3a838fabcc57972b84f979ef51a75a265b4f82	refs/heads/main
+621d6b357fd4388091d44c2c4350d22b20ea712d	refs/pull/1/head
+fe6cbd90ebb3abe53c82a1022e5a9f69475187b5	refs/pull/2/head

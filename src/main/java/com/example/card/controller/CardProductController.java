@@ -3,22 +3,38 @@ package com.example.card.controller;
 import com.example.card.domain.dto.request.CardProductRequest;
 import com.example.card.domain.dto.response.CardProductResponse;
 import com.example.card.service.CardProductService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/card-product")
+@RequestMapping("/api/v1/card-products")
 @RequiredArgsConstructor
 public class CardProductController {
     private final CardProductService cardProductService;
+    private final ObjectMapper objectMapper;
 
     @PostMapping
-    public void createCardProduct(@RequestBody CardProductRequest cardProductRequest) {
+    public void createCardProduct(
+            @RequestPart("cardProductRequest") String cardProductRequestJson,
+            @RequestPart("cardImg") MultipartFile cardImg) throws Exception {
+        CardProductRequest cardProductRequest = objectMapper.readValue(cardProductRequestJson, CardProductRequest.class);
+        cardProductRequest = new CardProductRequest(
+                cardProductRequest.cardProductName(),
+                cardProductRequest.cardAnnualFee(),
+                cardImg,
+                cardProductRequest.cardBenefits()
+        );
         cardProductService.addCardProduct(cardProductRequest);
     }
+//    @PostMapping
+//    public void createCardProduct(@RequestBody CardProductRequest cardProductRequest) {
+//        cardProductService.addCardProduct(cardProductRequest);
+//    }
 
     @DeleteMapping("/{cardProductId}")
     public void deleteCardProduct(@PathVariable Long cardProductId) {
