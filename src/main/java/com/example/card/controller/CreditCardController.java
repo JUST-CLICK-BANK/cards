@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/credit")
+@RequestMapping("/api/v1/cards/credit")
 @RequiredArgsConstructor
 public class CreditCardController {
 
     private final CreditService creditService;
 
-    @GetMapping("/{cardId")
+    @GetMapping("/{cardId}")
     public List<CreditHistoryResponse> getCreditHistory(
         @RequestParam(name = "cardId") Long cardId) {
         return creditService.getCreditHistory(cardId);
