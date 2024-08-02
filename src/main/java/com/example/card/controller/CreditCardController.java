@@ -43,6 +43,7 @@ public class CreditCardController {
         이하는 스케쥴러로 해야하는것
         집계끝나고 청구 만들기
         결제일마다 결제하기
+        매달마다 이번달 금액 초기화하기
      */
 
 }
