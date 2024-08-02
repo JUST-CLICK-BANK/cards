@@ -10,18 +10,20 @@ public record CreditHistoryResponse(
     String name,
     String receive,
     Long sum,
-    String memo
+    String memo,
+    String category
 ) {
 
     public static CreditHistoryResponse from(CreditHistory res) {
         return new CreditHistoryResponse(
-            res.getCredit_id(),
-            res.getCredit_pay_at(),
-            res.getCredit_amount(),
-            res.getCredit_name(),
-            res.getCredit_receive(),
-            res.getCredit_amount_sum(),
-            res.getCredit_memo()
+            res.getCreditId(),
+            res.getPayAt(),
+            res.getAmount(),
+            res.getReceiveName(),
+            res.getReceiveAccount(),
+            res.getAmountSum(),
+            res.getMemo(),
+            res.getCategoryId().getCategoryName()
         );
     }
 }

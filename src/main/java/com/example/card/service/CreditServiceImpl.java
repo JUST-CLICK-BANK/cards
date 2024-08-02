@@ -7,6 +7,7 @@ import com.example.card.domain.entity.CreditHistory;
 import com.example.card.domain.entity.CreditMonth;
 import com.example.card.domain.repository.CreditHistoryRepository;
 import com.example.card.domain.repository.CreditMonthRepository;
+import com.example.card.global.domain.entity.Category;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -36,8 +37,9 @@ public class CreditServiceImpl implements CreditService {
     @Transactional
     public void createCreditHistory(CreditHistoryRequest req) {
         Long totalAmount = getMonthAmount(req.cardId()) + req.amount();
-        Integer category = 0; // todo 카테고리 분류 알고리즘 필요
-        CreditHistory creditHistory = req.toEntity(totalAmount, category);
+        Category category = Category.builder().categoryId(0).build(); // todo 카테고리 분류 알고리즘 필요
+        Card card = Card.builder().cardId(req.cardId()).build();
+        CreditHistory creditHistory = req.toEntity(totalAmount, card, category);
         creditHistoryRepository.save(creditHistory);
     }
 }

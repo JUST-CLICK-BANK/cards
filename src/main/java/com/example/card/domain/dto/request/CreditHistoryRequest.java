@@ -1,6 +1,8 @@
 package com.example.card.domain.dto.request;
 
+import com.example.card.domain.entity.Card;
 import com.example.card.domain.entity.CreditHistory;
+import com.example.card.global.domain.entity.Category;
 import java.util.Date;
 
 public record CreditHistoryRequest(
@@ -10,14 +12,16 @@ public record CreditHistoryRequest(
     String receiveAccount
 ) {
 
-    public CreditHistory toEntity(Long amountSum, Integer category) {
+    public CreditHistory toEntity(Long amountSum, Card card, Category category) {
         return CreditHistory.builder()
-            .credit_pay_at(new Date())
-            .credit_amount(amount)
-            .credit_name(receiveName)
-            .credit_receive(receiveAccount)
-            .credit_amount_sum(amountSum)
-            .credit_memo("")
+            .payAt(new Date())
+            .amount(amount)
+            .receiveName(receiveName)
+            .receiveAccount(receiveAccount)
+            .amountSum(amountSum)
+            .memo("")
+            .cardId(card)
+//            .categoryId(category)
             .build();
     }
 }
