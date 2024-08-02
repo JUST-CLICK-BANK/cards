@@ -27,29 +27,29 @@ public class CreditHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CH_ID")
-    private Long credit_id;
+    private Long creditId;
 
     @Column(name = "CH_PAY_AT", nullable = false)
-    private Date credit_pay_at;
+    private Date payAt;
 
     @Column(name = "CH_AMOUNT", nullable = false)
-    private Long credit_amount;
+    private Long amount;
 
     @Column(name = "CH_RECEIVE_NAME", nullable = false)
-    private String credit_name;
+    private String receiveName;
 
     @Column(name = "CH_RECEIVE_ACCOUNT", nullable = false)
-    private String credit_receive;
+    private String receiveAccount;
 
     @Column(name = "CH_AMOUNT_SUM", nullable = false)
-    private Long credit_amount_sum;
+    private Long amountSum;
 
     @Column(name = "CH_MEMO", nullable = false)
-    private String credit_memo;
+    private String memo;
 
     @ManyToOne
     @Setter
-    @JoinColumn(name = "CARD_ID", nullable = false)
+    @JoinColumn(name = "CARD_ID")//, nullable = false)
     private Card cardId;
 
     @ManyToOne
