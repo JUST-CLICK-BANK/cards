@@ -67,6 +67,9 @@ public class Card {
     @Column(name = "CARD_CREATED_AT")
     private Date cardCreatedAt;
 
+    @Column(name = "CARD_PAYMENT_DATE")
+    private String cardPaymentDate;
+
     @ManyToOne
     @JoinColumn(name = "CARD_PRODUCT_ID")
     private CardProduct cardProduct;
@@ -74,6 +77,7 @@ public class Card {
     @Column(name = "CARD_TRANSPORTATION")
     @Enumerated(EnumType.STRING)
     private CardTransportation cardTransportation;
+
 
 
     public void updateCard(String cardPassword,Long cardOneTimeLimit,Long cardMonthLimit,String cardName){

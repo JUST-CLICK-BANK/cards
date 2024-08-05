@@ -17,6 +17,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/card-products")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*",
+        methods = {
+                RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.PUT,
+                RequestMethod.DELETE,
+                RequestMethod.OPTIONS
+        })
 public class CardProductController {
     private final CardProductService cardProductService;
     private final ObjectMapper objectMapper;
