@@ -26,6 +26,7 @@ public class CardController {
     private final CardService cardService;
     private final JwtUtils jwtUtils;
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getAllMyCard")
     public List<Card> getAllMyCard(GraphQLContext context) {
         String bearerToken = context.get("Authorization");
@@ -34,6 +35,7 @@ public class CardController {
         return cardService.getAllMyCard(tokenInfo);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getMyCard")
     public Card getMyCard(@Argument Long cardId) {
         return cardService.getMyCard(cardId);
@@ -46,8 +48,8 @@ public class CardController {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
         cardService.addCard(tokenInfo, cardRequest);
-
     }
+
     @PutMapping("/{cardId}")
     public  void updateCardPassword(@PathVariable long cardId,
                                     @RequestHeader("Authorization") String bearerToken,
