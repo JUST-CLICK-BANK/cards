@@ -2,6 +2,7 @@ package com.example.card.domain.dto.request;
 
 import com.example.card.config.constants.CardCheck;
 import com.example.card.config.constants.CardTransportation;
+import com.example.card.config.utils.password.PasswordUtils;
 import com.example.card.domain.entity.Card;
 import com.example.card.domain.entity.CardProduct;
 
@@ -25,13 +26,19 @@ public record CardRequest (
             Long cardAnnualFee,
             Date cardCreatedAt,
             String cardName,
-            CardProduct cardproduct
+            CardProduct cardproduct,
+            PasswordUtils passwordUtils
 
 
             ) {
+        String salt = passwordUtils.generateSalt();
+        String hashedPassword = passwordUtils.passwordHashing(cardPassword, salt);
         return Card.builder()
                 .account(account)
-                .cardPassword(cardPassword)
+//                .cardPassword(cardPassword)
+//                .passwordUtils.passwordHashing(cardPassword,salt)
+                .cardPassword(hashedPassword)
+                .cardSalt(salt)
                 .cardCheck(cardCheck)
                 .cardProduct(cardproduct)
                 .userId(userId)

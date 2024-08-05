@@ -1,6 +1,7 @@
 package com.example.card.domain.dao;
 
 import com.example.card.config.utils.jwt.TokenInfo;
+import com.example.card.config.utils.password.PasswordUtilsImpl;
 import com.example.card.domain.dto.request.CardRequest;
 import com.example.card.domain.entity.Card;
 import com.example.card.domain.entity.CardProduct;
@@ -17,6 +18,7 @@ import java.util.UUID;
 public class CardDaoImpl implements CardDao{
     private final CardRepository cardRepository;
     private final CardProductRepository cardProductRepository;
+    private final PasswordUtilsImpl passwordUtilsImpl;
 
     @Override
     public void saveCard(CardRequest req, String cardNumber, UUID userId, String cardCVC, Date cardCreatedAt, TokenInfo tokenInfo) {
@@ -34,7 +36,9 @@ public class CardDaoImpl implements CardDao{
                         100000L,
                         cardCreatedAt,
                         cardName+"의 카드",
-                        cardProduct
+                        cardProduct,
+                        passwordUtilsImpl
+
 
 
 

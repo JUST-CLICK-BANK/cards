@@ -4,10 +4,7 @@ package com.example.card.domain.entity;
 import com.example.card.config.constants.CardTransportation;
 import io.micrometer.core.instrument.binder.netty4.NettyAllocatorMetrics;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Getter
@@ -27,7 +24,7 @@ public class CardProduct {
     @Column(name = "CARD_ANNUAL_FEE")
     private Long cardAnnualFee;
 
-
+    @Setter
     @Column(name = "CARD_IMG")
     private String cardImg;
 
@@ -37,5 +34,6 @@ public class CardProduct {
 //    @Column(name = "CARD_BRAND")
 //    @Enumerated(EnumType.STRING)
 //    private CardBrand cardBrand;
+
 
 }

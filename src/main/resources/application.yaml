@@ -9,6 +9,13 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:springboot-storage-key.json
+        project-id: vibrant-depth-424101-m7
+        bucket: cardimg_bucket
 
   graphql:
     servlet:
@@ -19,6 +26,13 @@ spring:
       endpoint: /graphiql
       enabled: true
 
+
 jwt:
   secret: thisispublickeythisispublickeythisispublickeythisispublickey
-  expiration: 86400000
+
+#  expiration: 86400000
+
+
+
+
+
