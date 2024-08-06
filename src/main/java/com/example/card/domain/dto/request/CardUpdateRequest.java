@@ -5,6 +5,7 @@ public record CardUpdateRequest(
         String password,
         Long cardOneTimeLimit,
         Long cardMonthLimit,
-        String cardName
+        String cardName,
+        String cardPaymentDate
 ){
 }

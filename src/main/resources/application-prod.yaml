@@ -15,7 +15,7 @@ spring:
         credentials:
 #          location: classpath:gcs.json
 #          location: {storage}
-           location: file:C:\card\src\main\resources\gcs.json
+           location: file:\card\src\main\resources\gcs.json
         project-id: vibrant-depth-424101-m7
         bucket: cardimg_bucket
 

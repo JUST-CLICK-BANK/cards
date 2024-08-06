@@ -80,11 +80,12 @@ public class Card {
 
 
 
-    public void updateCard(String cardPassword,Long cardOneTimeLimit,Long cardMonthLimit,String cardName){
+    public void updateCard(String cardPassword,Long cardOneTimeLimit,Long cardMonthLimit,String cardName,String cardPaymentDate){
         this.cardPassword = cardPassword;
         this.cardOneTimeLimit = cardOneTimeLimit;
         this.cardMonthLimit = cardMonthLimit;
         this.cardName = cardName;
+        this.cardPaymentDate = cardPaymentDate;
 //        this.cardNumber = cardNumber;
     }
 
