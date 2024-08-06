@@ -9,15 +9,22 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
+import io.grpc.internal.ReadableBuffer;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 //import lombok.Value;
+import org.hibernate.engine.jdbc.ReaderInputStream;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,12 +38,13 @@ public class CardProductServiceImpl implements  CardProductService{
 //    private final Storage storage = StorageOptions.getDefaultInstance().getService();
 private final Storage storage;
     private final String bucketName;
-    public CardProductServiceImpl(CardProductRepository cardProductRepository, @Value("${spring.cloud.gcp.storage.bucket}") String bucketName) throws IOException {
+
+    public CardProductServiceImpl(CardProductRepository cardProductRepository, Storage storage, @Value("${spring.cloud.gcp.storage.bucket}") String bucketName) {
         this.cardProductRepository = cardProductRepository;
+        this.storage = storage;
         this.bucketName = bucketName;
-        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream("src/main/resources/springboot-storage-key.json"));
-        this.storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
     }
+
     @Override
     public List<CardProduct> getAllCardProduct() {
         return cardProductRepository.findAll();

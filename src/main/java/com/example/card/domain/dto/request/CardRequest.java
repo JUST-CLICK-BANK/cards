@@ -14,7 +14,8 @@ public record CardRequest (
         CardCheck cardCheck,
         String account,
         CardTransportation cardTransportation,
-        long cardProductId
+        long cardProductId,
+        String cardPaymentDate
 ) {
     public Card toEntity(
             String cardNumber,
@@ -40,6 +41,7 @@ public record CardRequest (
                 .cardPassword(hashedPassword)
                 .cardSalt(salt)
                 .cardCheck(cardCheck)
+                .cardPaymentDate(cardPaymentDate)
                 .cardProduct(cardproduct)
                 .userId(userId)
                 .cardOneTimeLimit(cardOneTimeLimit)

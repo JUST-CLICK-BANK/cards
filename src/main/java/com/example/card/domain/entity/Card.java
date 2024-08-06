@@ -67,6 +67,9 @@ public class Card {
     @Column(name = "CARD_CREATED_AT")
     private Date cardCreatedAt;
 
+    @Column(name = "CARD_PAYMENT_DATE")
+    private String cardPaymentDate;
+
     @ManyToOne
     @JoinColumn(name = "CARD_PRODUCT_ID")
     private CardProduct cardProduct;
@@ -76,11 +79,13 @@ public class Card {
     private CardTransportation cardTransportation;
 
 
-    public void updateCard(String cardPassword,Long cardOneTimeLimit,Long cardMonthLimit,String cardName){
+
+    public void updateCard(String cardPassword,Long cardOneTimeLimit,Long cardMonthLimit,String cardName,String cardPaymentDate){
         this.cardPassword = cardPassword;
         this.cardOneTimeLimit = cardOneTimeLimit;
         this.cardMonthLimit = cardMonthLimit;
         this.cardName = cardName;
+        this.cardPaymentDate = cardPaymentDate;
 //        this.cardNumber = cardNumber;
     }
 
