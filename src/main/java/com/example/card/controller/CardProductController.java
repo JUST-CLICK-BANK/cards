@@ -1,7 +1,6 @@
 package com.example.card.controller;
 
 import com.example.card.domain.dto.request.CardProductRequest;
-import com.example.card.domain.dto.response.CardProductResponse;
 import com.example.card.domain.entity.CardProduct;
 import com.example.card.service.CardProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/card-products")

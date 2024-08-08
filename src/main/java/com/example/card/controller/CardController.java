@@ -4,11 +4,9 @@ import com.example.card.config.utils.jwt.JwtUtils;
 import com.example.card.config.utils.jwt.TokenInfo;
 import com.example.card.domain.dto.request.CardRequest;
 import com.example.card.domain.dto.request.CardUpdateRequest;
-import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.service.CardService;
 import graphql.GraphQLContext;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -16,7 +14,6 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
