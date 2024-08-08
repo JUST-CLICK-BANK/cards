@@ -76,7 +76,7 @@ public class CardServiceImpl implements CardService {
         if (userId == null) throw new IllegalArgumentException("유효하지 않는 토큰입니다.");
         Card card = cardRepository.findByCardId(cardId)
                 .orElseThrow(IllegalArgumentException::new);
-        card.updateCard(req.password(), req.cardOneTimeLimit(), req.cardMonthLimit(), req.cardName());
+        card.updateCard(req.password(), req.cardOneTimeLimit(), req.cardMonthLimit(), req.cardName(),req.cardPaymentDate());
 
     }
 

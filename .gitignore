@@ -6,7 +6,7 @@ build/
 !**/src/test/**/build/
 
 # 비밀 파일
-src/main/resources/springboot-storage-key.json
+src/main/resources/gcs.json
 
 
 

@@ -2,7 +2,7 @@ spring:
   application:
     name: card
   datasource:
-    url: jdbc:postgresql://localhost:5432/click-card?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:postgresql://localhost:5432/click?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: postgres
     password: 1234
   jpa:
@@ -13,9 +13,10 @@ spring:
     gcp:
       storage:
         credentials:
-          location: classpath:springboot-storage-key.json
+          location: classpath:gcs.json
         project-id: vibrant-depth-424101-m7
         bucket: cardimg_bucket
+
 
   graphql:
     servlet:
@@ -29,6 +30,8 @@ spring:
 
 jwt:
   secret: thisispublickeythisispublickeythisispublickeythisispublickey
+hash:
+  iterations: 128
 
 #  expiration: 86400000
 
