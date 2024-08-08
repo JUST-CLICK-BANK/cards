@@ -37,7 +37,7 @@ public class CardController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getMyCard")
-    public Card getMyCard(@Argument Long cardId) {
+    public Card getMyCard(@Argument(name = "cardId") Long cardId) {
         return cardService.getMyCard(cardId);
     }
 

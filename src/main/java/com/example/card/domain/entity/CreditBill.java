@@ -29,20 +29,20 @@ public class CreditBill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CB_ID")
-    private Long bill_id;
+    private Long billId;
 
     @Column(name = "CB_AMOUNT", nullable = false)
-    private Long bill_amount;
+    private Long billAmount;
 
     @Column(name = "CB_UNPAID_AMOUNT", nullable = false)
-    private Long bill_unpaid;
+    private Long billUnpaid;
 
     @Column(name = "CB_STATE", nullable = false)
     @Enumerated(EnumType.STRING)
-    private BillStateType bill_state;
+    private BillStateType billState;
 
     @Column(name = "CB_DATE", nullable = false)
-    private Date bill_date;
+    private Date billDate;
 
     @ManyToOne
     @Setter

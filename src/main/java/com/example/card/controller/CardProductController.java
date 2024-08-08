@@ -41,7 +41,7 @@ public class CardProductController {
     // Get. 카드 상품 상세 정보 불러오기
     @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getCardProduct")
-    public CardProduct getCardProduct(@Argument Long cardProductId) {
+    public CardProduct getCardProduct(@Argument(name = "cardProductId") Long cardProductId) {
 //  TODO { "query": "query {getCardProduct(cardProductId:1){
 //   cardProductId cardImg cardProductName cardAnnualFee cardBenefits
 //   }}" }

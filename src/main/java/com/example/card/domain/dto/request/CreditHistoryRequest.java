@@ -21,7 +21,7 @@ public record CreditHistoryRequest(
             .amountSum(amountSum)
             .memo("")
             .cardId(card)
-//            .categoryId(category)
+            .categoryId(category)
             .build();
     }
 }

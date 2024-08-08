@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -20,10 +21,22 @@ import lombok.NoArgsConstructor;
 public class CreditMonth {
 
     @Id
+    private Long creditMonthId;
+
     @OneToOne
-    @JoinColumn(name = "CARD_ID", nullable = false)
+    @MapsId(value = "creditMonthId")
+    @JoinColumn(name = "CARD_ID")
     private Card cardId;
 
     @Column(name = "CM_AMOUNT", nullable = false)
-    private Long credit_month_amount;
+    private Long creditMonthAmount;
+
+    public Long addAmount(Long amount) {
+        creditMonthAmount += amount;
+        return creditMonthAmount;
+    }
+
+    public void resetAmount() {
+        creditMonthAmount = 0L;
+    }
 }
