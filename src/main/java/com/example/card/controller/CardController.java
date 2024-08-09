@@ -83,7 +83,7 @@ public class CardController {
         cardService.updateCardOneTimeLimit(UUID.fromString(tokenInfo.id()),cardId,req);
     }
     @PutMapping("/month-limit/{cardId}")
-    public  void updateCardOneTimeLimit(@PathVariable long cardId,
+    public  void updateCardMonthLimit(@PathVariable long cardId,
                                         @RequestHeader("Authorization") String bearerToken,
                                         @RequestBody CardMonthLimitRequest req) {
         String token = bearerToken.substring(7);
@@ -91,7 +91,7 @@ public class CardController {
         cardService.updateCardMonthLimit(UUID.fromString(tokenInfo.id()),cardId,req);
     }
     @PutMapping("/payment-date/{cardId}")
-    public  void updateCardOneTimeLimit(@PathVariable long cardId,
+    public  void updateCardPaymentDate(@PathVariable long cardId,
                                         @RequestHeader("Authorization") String bearerToken,
                                         @RequestBody CardPatmentDateRequest req) {
         String token = bearerToken.substring(7);
