@@ -60,9 +60,9 @@ public class Card {
     @Column(name = "CARD_SALT")
     private String cardSalt;
 
-    @Column(name = "CARD_DISABLE")
+    @Column(name = "CARD_ABLE")
     @Setter
-    private Boolean cardDisable;
+    private Boolean cardAble;
 
     @Column(name = "CARD_CREATED_AT")
     private Date cardCreatedAt;
