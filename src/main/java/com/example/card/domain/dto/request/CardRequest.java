@@ -19,7 +19,7 @@ public record CardRequest (
 ) {
     public Card toEntity(
             String cardNumber,
-            Boolean cardDisable,
+            Boolean cardAble,
             Long cardOneTimeLimit,
             Long cardMonthLimit,
             UUID userId,
@@ -49,7 +49,7 @@ public record CardRequest (
                 .cardNumber(cardNumber)
                 .cardCVC(cardCVC)
                 .cardAnnualFee(cardAnnualFee)
-                .cardDisable(cardDisable)
+                .cardAble(cardAble)
                 .cardCreatedAt(cardCreatedAt)
                 .cardName(cardName)
                 .cardTransportation(cardTransportation)
