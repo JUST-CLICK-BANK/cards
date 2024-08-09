@@ -41,7 +41,7 @@ public class CardProductController {
     // Get. 카드 상품 상세 정보 불러오기
     @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getCardProduct")
-    public CardProduct getCardProduct(@Argument Long cardProductId) {
+    public CardProduct getCardProduct(@Argument(name = "cardProductId") Long cardProductId) {
 //  TODO { "query": "query {getCardProduct(cardProductId:1){
 //   cardProductId cardImg cardProductName cardAnnualFee cardBenefits
 //   }}" }
@@ -73,25 +73,25 @@ public class CardProductController {
 
     // TODO CardController 에서 getAllMyCard()로 대체
     //카드 id로 카드 이미지 불러옴(CardComplete페이지)
-    // @GetMapping("/image/{cardProductId}")
-    // public String getCardImgBycardID(@PathVariable("cardProductId") long cardProductId){
-    //     return cardProductService.getCardImgBycardID(cardProductId);
-    // }
+//     @GetMapping("/image/{cardProductId}")
+//     public String getCardImgBycardID(@PathVariable("cardProductId") long cardProductId){
+//         return cardProductService.getCardImgBycardID(cardProductId);
+//     }
 
     // TODO getAllCardProduct()로 대체
     //카드 이미지 전체 불러오기(AddCardList페이지)
-    // @GetMapping("/images")
-    // public List<String> getAllCardImages() {
-    //     return cardProductService.getAllCardImages();
-    // }
+//     @GetMapping("/images")
+//     public List<String> getAllCardImages() {
+//         return cardProductService.getAllCardImages();
+//     }
 
     // TODO getCardProduct(cardProductId)로 대체
     //카드상품 아이디로 카드상품이름,연회비,카드 이미지,카드 적립률(cardInformation 페이지)
-    // @GetMapping("/{cardProductId}")
-    // public Optional<CardProductResponse> getCardBycardID(@PathVariable("cardProductId") long cardProductId) {
-    //     CardProductResponse cardProductResponse = cardProductService.getCardNameCardImgCardAnnualFeeCardBenefitByCardID(cardProductId);
-    //     return Optional.of(cardProductResponse);
-    // }
+//     @GetMapping("/{cardProductId}")
+//     public Optional<CardProductResponse> getCardBycardID(@PathVariable("cardProductId") long cardProductId) {
+//         CardProductResponse cardProductResponse = cardProductService.getCardNameCardImgCardAnnualFeeCardBenefitByCardID(cardProductId);
+//         return Optional.of(cardProductResponse);
+//     }
 
 
 }
