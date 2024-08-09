@@ -20,7 +20,7 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     List<Card> findByUserId(UUID userId);
     @Query("SELECT c FROM Card c WHERE c.cardId = :cardId")
     Optional<Card> findCardByCardId(@Param("cardId") long cardId);
-    @Query("SELECT c FROM Card c WHERE c.cardId = :cardId AND c.cardDisable = true")
+    @Query("SELECT c FROM Card c WHERE c.cardId = :cardId AND c.cardAble = true")
     Optional<Card> findDisabledCardByCardId(@Param("cardId") long cardId);
 
 

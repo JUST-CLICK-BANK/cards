@@ -6,10 +6,8 @@ import com.example.card.config.utils.jwt.TokenInfo;
 import com.example.card.domain.dao.CardDao;
 import com.example.card.domain.dto.request.*;
 import com.example.card.domain.dto.response.CardProductCardResponse;
-import com.example.card.domain.dto.response.CardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.domain.repository.CardRepository;
-import io.opencensus.internal.DefaultVisibilityForTesting;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -132,7 +130,7 @@ public class CardServiceImpl implements CardService {
         Card delete = cardRepository.findByUserIdAndCardNumber(userId, cardNumber)
                 .orElseThrow(IllegalArgumentException::new);
 
-        delete.setCardDisable(false);
+        delete.setCardAble(false);
         cardRepository.save(delete);
 
     }
