@@ -24,6 +24,11 @@ repositories {
 }
 
 dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+	testImplementation 'org.mockito:mockito-core:3.6.0'
+	testImplementation 'org.mockito:mockito-inline:3.6.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:3.6.0'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -42,11 +47,15 @@ dependencies {
 //	implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-starter', version: '1.2.5.RELEASE'
 //	implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-storage', version: '1.2.5.RELEASE'
 	implementation 'com.google.cloud:spring-cloud-gcp-starter-storage'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
 ext {
 	set('springCloudGcpVersion', "5.0.0")
 	set('springCloudVersion', "2023.0.0")
+}
+test {
+	useJUnitPlatform()
 }
 
 dependencyManagement {

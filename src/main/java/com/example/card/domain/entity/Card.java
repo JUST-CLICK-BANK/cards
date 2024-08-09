@@ -89,4 +89,21 @@ public class Card {
 //        this.cardNumber = cardNumber;
     }
 
+    public void updateCardPassword(String cardPassword){
+        this.cardPassword = cardPassword;
+    }
+
+    public void updateCardName(String cardName){
+        this.cardName = cardName;
+    }
+    public void updateCardOneTimeLimit( Long cardOneTimeLimit){
+        this.cardOneTimeLimit = cardOneTimeLimit;
+    }
+    public void updateCardMonth( Long cardMonthLimit){
+        this.cardMonthLimit = cardMonthLimit;
+    }
+
+    public void updateCardPaymentDate( String cardPaymentDate){
+        this.cardPaymentDate = cardPaymentDate;
+    }
 }
