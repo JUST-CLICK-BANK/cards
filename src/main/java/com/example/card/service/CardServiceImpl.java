@@ -9,14 +9,13 @@ import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.domain.repository.CardRepository;
 import jakarta.persistence.EntityNotFoundException;
-import java.util.List;
+
+import java.util.*;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -37,6 +36,8 @@ public class CardServiceImpl implements CardService {
     public Card getMyCard(Long cardId) {
         return cardRepository.findDisabledCardByCardId(cardId).orElseThrow(EntityNotFoundException::new);
     }
+
+
 
     @Override
     public void addCard(TokenInfo tokenInfo, CardRequest req) {
@@ -77,39 +78,40 @@ public class CardServiceImpl implements CardService {
                 .orElseThrow(IllegalArgumentException::new);
         card.updateCard(req.password(), req.cardOneTimeLimit(), req.cardMonthLimit(), req.cardName(),req.cardPaymentDate());
 
+
     }
     @Override
     public void updateCardPassword(UUID userId,long cardId, CardPasswordRequest req) {
         if (userId == null) throw new IllegalArgumentException("유효하지 않는 토큰입니다.");
-        Card card = cardRepository.findCardByCardId(cardId)
+        Card card = cardRepository.findByCardId(cardId)
                 .orElseThrow(IllegalArgumentException::new);
         card.updateCardPassword(req.cardpassword());
     }
     @Override
     public void updateCardName(UUID userId,long cardId, CardNameRequest req) {
         if (userId == null) throw new IllegalArgumentException("유효하지 않는 토큰입니다.");
-        Card card = cardRepository.findCardByCardId(cardId)
+        Card card = cardRepository.findByCardId(cardId)
                 .orElseThrow(IllegalArgumentException::new);
         card.updateCardName(req.cardName());
     }
     @Override
     public void updateCardOneTimeLimit(UUID userId,long cardId, CardOneTimeLimitRequest req) {
         if (userId == null) throw new IllegalArgumentException("유효하지 않는 토큰입니다.");
-        Card card = cardRepository.findCardByCardId(cardId)
+        Card card = cardRepository.findByCardId(cardId)
                 .orElseThrow(IllegalArgumentException::new);
         card.updateCardOneTimeLimit(req.cardOneTimeLimit());
     }
     @Override
     public void updateCardMonthLimit(UUID userId,long cardId, CardMonthLimitRequest req) {
         if (userId == null) throw new IllegalArgumentException("유효하지 않는 토큰입니다.");
-        Card card = cardRepository.findCardByCardId(cardId)
+        Card card = cardRepository.findByCardId(cardId)
                 .orElseThrow(IllegalArgumentException::new);
         card.updateCardMonth(req.cardMonthLimit());
     }
     @Override
     public void updateCardPaymentDate (UUID userId,long cardId, CardPatmentDateRequest req){
         if (userId == null) throw new IllegalArgumentException("유효하지 않는 토큰입니다.");
-        Card card = cardRepository.findCardByCardId(cardId)
+        Card card = cardRepository.findByCardId(cardId)
                 .orElseThrow(IllegalArgumentException::new);
         card.updateCardPaymentDate(req.cardPaymentDate());
     }
