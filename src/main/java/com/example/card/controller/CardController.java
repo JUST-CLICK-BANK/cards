@@ -59,7 +59,7 @@ public class CardController {
         cardService.updateCard(UUID.fromString(tokenInfo.id()),cardId,req);
     }
     @PutMapping("/password/{cardId}")
-    public  void updateCardPasssword(@PathVariable long cardId,
+    public  void updateCardPassword(@PathVariable long cardId,
                                     @RequestHeader("Authorization") String bearerToken,
                                     @RequestBody CardPasswordRequest req) {
         String token = bearerToken.substring(7);
