@@ -25,7 +25,7 @@ type Card {
     cardMonthLimit: Long
     cardAnnualFee: Long
     cardPassword: String
-    cardDisable: Boolean
+    cardAble: Boolean
     cardCreatedAt: String
     cardProduct: CardProduct
     cardTransportation: CardTransportation
