@@ -26,7 +26,7 @@ public class CardController {
     private final CardService cardService;
     private final JwtUtils jwtUtils;
 
-    @CrossOrigin(origins = "http://35.239.149.187:31982")
+    @CrossOrigin(origins = "http://35.239.149.187:8080")
     @QueryMapping(name = "getAllMyCard")
     public List<Card> getAllMyCard(GraphQLContext context) {
         String bearerToken = context.get("Authorization");
@@ -35,7 +35,7 @@ public class CardController {
         return cardService.getAllMyCard(tokenInfo);
     }
 
-    @CrossOrigin(origins = "http://35.239.149.187:31982")
+    @CrossOrigin(origins = "http://35.239.149.187:8080")
     @QueryMapping(name = "getMyCard")
     public Card getMyCard(@Argument(name = "cardId") Long cardId) {
         return cardService.getMyCard(cardId);

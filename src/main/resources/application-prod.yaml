@@ -26,6 +26,7 @@ spring:
       path: /graphql
     tools:
       schema-location-pattern: classpath:graphql/**/*.graphqls
+
     graphiql:
       endpoint: /graphql
       enabled: true
