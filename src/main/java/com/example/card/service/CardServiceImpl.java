@@ -36,6 +36,10 @@ public class CardServiceImpl implements CardService {
     public Card getMyCard(Long cardId) {
         return cardRepository.findDisabledCardByCardId(cardId).orElseThrow(EntityNotFoundException::new);
     }
+    @Override
+    public Boolean getAbleMyCard(Long cardId) {
+        return cardRepository.findDisabledCardByCardId(cardId).isPresent();
+    }
 
 
 
