@@ -17,9 +17,11 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     @Query("SELECT c FROM Card c JOIN FETCH c.cardProduct cp WHERE c.cardId = :cardId")
     Optional<Card> findCardCardProductByCardId(@Param("cardId") long cardId);
 
-    List<Card> findByUserId(UUID userId);
-    @Query("SELECT c FROM Card c WHERE c.cardId = :cardId")
+//    List<Card> findByUserId(UUID userId);
+    @Query("SELECT c FROM Card c WHERE c.cardId = :cardId ")
     Optional<Card> findCardByCardId(@Param("cardId") long cardId);
+    @Query("SELECT c FROM Card c WHERE c.userId = :userId AND c.cardAble = true")
+    List<Card> findByUserId(@Param("userId") UUID userId);
     @Query("SELECT c FROM Card c WHERE c.cardId = :cardId AND c.cardAble = true")
     Optional<Card> findDisabledCardByCardId(@Param("cardId") long cardId);
 
