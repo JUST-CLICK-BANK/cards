@@ -42,7 +42,7 @@ public class CardController {
     }
 
     @GetMapping("/{cardId}")
-    public Boolean getAbleMycard (@PathVariable long cardId){
+    public Boolean getAbleMycard (@PathVariable Long cardId){
         return cardService.getAbleMyCard(cardId);
     }
 
