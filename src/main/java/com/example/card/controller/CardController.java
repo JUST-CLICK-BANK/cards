@@ -41,9 +41,14 @@ public class CardController {
         return cardService.getMyCard(cardId);
     }
 
+    @GetMapping("/{cardId}")
+    public Boolean getAbleMycard (@PathVariable long cardId){
+        return cardService.getAbleMyCard(cardId);
+    }
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void  createCard(@RequestHeader("Authorization") String bearerToken,
+    public void createCard(@RequestHeader("Authorization") String bearerToken,
                            @RequestBody CardRequest cardRequest) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
@@ -51,68 +56,70 @@ public class CardController {
     }
 
     @PutMapping("/{cardId}")
-    public  void updateCard(@PathVariable long cardId,
-                                    @RequestHeader("Authorization") String bearerToken,
-                                    @RequestBody CardUpdateRequest req) {
+    public void updateCard(@PathVariable long cardId,
+                           @RequestHeader("Authorization") String bearerToken,
+                           @RequestBody CardUpdateRequest req) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.updateCard(UUID.fromString(tokenInfo.id()),cardId,req);
+        cardService.updateCard(UUID.fromString(tokenInfo.id()), cardId, req);
     }
+
     @PutMapping("/password/{cardId}")
-    public  void updateCardPassword(@PathVariable long cardId,
-                                    @RequestHeader("Authorization") String bearerToken,
-                                    @RequestBody CardPasswordRequest req) {
+    public void updateCardPassword(@PathVariable long cardId,
+                                   @RequestHeader("Authorization") String bearerToken,
+                                   @RequestBody CardPasswordRequest req) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.updateCardPassword(UUID.fromString(tokenInfo.id()),cardId,req);
+        cardService.updateCardPassword(UUID.fromString(tokenInfo.id()), cardId, req);
     }
+
     @PutMapping("/card-name/{cardId}")
-    public  void updateCardName(@PathVariable long cardId,
-                                     @RequestHeader("Authorization") String bearerToken,
-                                     @RequestBody CardNameRequest req) {
+    public void updateCardName(@PathVariable long cardId,
+                               @RequestHeader("Authorization") String bearerToken,
+                               @RequestBody CardNameRequest req) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.updateCardName(UUID.fromString(tokenInfo.id()),cardId,req);
+        cardService.updateCardName(UUID.fromString(tokenInfo.id()), cardId, req);
     }
+
     @PutMapping("/day-limit/{cardId}")
-    public  void updateCardOneTimeLimit(@PathVariable long cardId,
-                                @RequestHeader("Authorization") String bearerToken,
-                                @RequestBody CardOneTimeLimitRequest req) {
+    public void updateCardOneTimeLimit(@PathVariable long cardId,
+                                       @RequestHeader("Authorization") String bearerToken,
+                                       @RequestBody CardOneTimeLimitRequest req) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.updateCardOneTimeLimit(UUID.fromString(tokenInfo.id()),cardId,req);
+        cardService.updateCardOneTimeLimit(UUID.fromString(tokenInfo.id()), cardId, req);
     }
+
     @PutMapping("/month-limit/{cardId}")
-    public  void updateCardMonthLimit(@PathVariable long cardId,
-                                        @RequestHeader("Authorization") String bearerToken,
-                                        @RequestBody CardMonthLimitRequest req) {
+    public void updateCardMonthLimit(@PathVariable long cardId,
+                                     @RequestHeader("Authorization") String bearerToken,
+                                     @RequestBody CardMonthLimitRequest req) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.updateCardMonthLimit(UUID.fromString(tokenInfo.id()),cardId,req);
+        cardService.updateCardMonthLimit(UUID.fromString(tokenInfo.id()), cardId, req);
     }
+
     @PutMapping("/payment-date/{cardId}")
-    public  void updateCardPaymentDate(@PathVariable long cardId,
-                                        @RequestHeader("Authorization") String bearerToken,
-                                        @RequestBody CardPatmentDateRequest req) {
+    public void updateCardPaymentDate(@PathVariable long cardId,
+                                      @RequestHeader("Authorization") String bearerToken,
+                                      @RequestBody CardPatmentDateRequest req) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.updateCardPaymentDate(UUID.fromString(tokenInfo.id()),cardId,req);
+        cardService.updateCardPaymentDate(UUID.fromString(tokenInfo.id()), cardId, req);
     }
-
-
 
 
     @DeleteMapping()
     public void deleteCard(@RequestHeader("Authorization") String bearerToken,
-                           @RequestParam ("cardNumber") String cardNumber) {
+                           @RequestParam("cardNumber") String cardNumber) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
-        cardService.deleteCard(UUID.fromString(tokenInfo.id()),cardNumber);
+        cardService.deleteCard(UUID.fromString(tokenInfo.id()), cardNumber);
 
     }
+}
 
-
-    }
 
     // TODO getMyCard()로 대체
     //카드 아이디로 카드이름,카드상품 이미지,카드번호,계좌 번호(MyCardInformation페이지)

@@ -23,4 +23,5 @@ public interface CardService {
     void updateCardOneTimeLimit(UUID userId,long cardId, CardOneTimeLimitRequest req);
     void updateCardMonthLimit(UUID userId,long cardId, CardMonthLimitRequest req);
     void updateCardPaymentDate(UUID userId,long cardId, CardPatmentDateRequest req);
+    Boolean getAbleMyCard(Long cardId);
 }
