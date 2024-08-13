@@ -111,16 +111,20 @@ public class CardController {
 
 
     @DeleteMapping()
-    public void deleteCard(@RequestHeader("Authorization") String bearerToken,
-                           @RequestParam("cardNumber") String cardNumber) {
+    public void deleteCard(
+            @RequestHeader("Authorization") String bearerToken,
+            @RequestParam("cardNumber") String cardNumber
+    ) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
         cardService.deleteCard(UUID.fromString(tokenInfo.id()), cardNumber);
 
     }
     @DeleteMapping("/account")
-    public void deleteAccountCard(@RequestHeader("Authorization") String bearerToken,
-                           @RequestParam("account") String account) {
+    public void deleteAccountCard(
+            @RequestHeader("Authorization") String bearerToken,
+            @RequestParam("account") String account
+    ) {
         String token = bearerToken.substring(7);
         TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
         cardService.deleteCardFromAccount(UUID.fromString(tokenInfo.id()), account);
