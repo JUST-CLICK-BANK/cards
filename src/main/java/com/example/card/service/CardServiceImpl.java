@@ -32,12 +32,13 @@ public class CardServiceImpl implements CardService {
     private final AccountApi accountApi;
 
     @Override
-    public void deleteCardFromAccount(String account){
+    public void deleteCardFromAccount(UUID userId,String account){
         // List<Card> 를 가져옴
         List<Card> cards = cardRepository.findByAccount(account);
         cards.forEach(card -> card.setCardAble(false));
-        cardRepository.saveAll(cards);
+
         // 가져온 다음에 false로 만듬 예를 들어 .forEach .stream.map() 사용
+        cardRepository.saveAll(cards);
     }
     @Override
     public List<Card> getAllMyCard(TokenInfo tokenInfo) {

@@ -24,5 +24,5 @@ public interface CardService {
     void updateCardMonthLimit(UUID userId,long cardId, CardMonthLimitRequest req);
     void updateCardPaymentDate(UUID userId,long cardId, CardPatmentDateRequest req);
     Boolean getAbleMyCard(Long cardId);
-    void deleteCardFromAccount(String account);
+    void deleteCardFromAccount(UUID userId ,String account);
 }
