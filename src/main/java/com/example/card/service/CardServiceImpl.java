@@ -5,12 +5,12 @@ import com.example.card.config.utils.card.GenerateCardNumber;
 import com.example.card.config.utils.jwt.TokenInfo;
 import com.example.card.domain.dao.CardDao;
 import com.example.card.domain.dto.request.*;
-import com.example.card.domain.dto.response.AccountFeignResponse;
+//import com.example.card.domain.dto.response.AccountFeignResponse;
 import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
 import com.example.card.domain.repository.CardRepository;
-import com.example.card.global.api.AccountApi;
-import com.example.card.global.api.AccountFeign;
+//import com.example.card.global.api.AccountApi;
+//import com.example.card.global.api.AccountFeign;
 import jakarta.persistence.EntityNotFoundException;
 
 import java.util.*;
@@ -29,7 +29,7 @@ public class CardServiceImpl implements CardService {
     private final CardRepository cardRepository;
     private final CardDao cardDao;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private final AccountApi accountApi;
+//    private final AccountApi accountApi;
 
     @Override
     public void deleteCardFromAccount(UUID userId,String account){
