@@ -17,21 +17,21 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/card-products")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*",
-        methods = {
-                RequestMethod.GET,
-                RequestMethod.POST,
-                RequestMethod.PUT,
-                RequestMethod.DELETE,
-                RequestMethod.OPTIONS
-        })
+//@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*",
+//        methods = {
+//                RequestMethod.GET,
+//                RequestMethod.POST,
+//                RequestMethod.PUT,
+//                RequestMethod.DELETE,
+//                RequestMethod.OPTIONS
+//        })
 public class CardProductController {
     private final CardProductService cardProductService;
     private final ObjectMapper objectMapper;
 
     // TODO POST 요청으로 BODY 에 다음을 넣어줘야함
     // Get. 카드 상품 전체 목록 불러오기
-    @CrossOrigin(origins = "http://localhost:8080")
+//    @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getAllCardProduct")
     public List<CardProduct> getAllCardProduct() {
 //  TODO { "query": "query { getAllCard { cardProductId cardImg cardProductName } }" }
@@ -39,7 +39,7 @@ public class CardProductController {
     }
 
     // Get. 카드 상품 상세 정보 불러오기
-    @CrossOrigin(origins = "http://localhost:8080")
+//    @CrossOrigin(origins = "http://localhost:8080")
     @QueryMapping(name = "getCardProduct")
     public CardProduct getCardProduct(@Argument(name = "cardProductId") Long cardProductId) {
 //  TODO { "query": "query {getCardProduct(cardProductId:1){
