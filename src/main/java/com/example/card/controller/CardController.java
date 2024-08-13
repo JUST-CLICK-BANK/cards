@@ -120,7 +120,7 @@ public class CardController {
         cardService.deleteCard(UUID.fromString(tokenInfo.id()), cardNumber);
 
     }
-    @DeleteMapping("/account")
+    @PutMapping("/account")
     public void deleteAccountCard(
             @RequestHeader("Authorization") String bearerToken,
             @RequestParam("account") String account
