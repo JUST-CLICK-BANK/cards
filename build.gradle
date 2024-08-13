@@ -49,6 +49,7 @@ dependencies {
 	implementation 'com.google.cloud:spring-cloud-gcp-starter-storage'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
 
 }
 ext {
