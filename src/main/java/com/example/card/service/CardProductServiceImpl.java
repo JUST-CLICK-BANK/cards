@@ -115,8 +115,9 @@ private final Storage storage;
                 .build();
 
         try {
+            String prefix = "https://storage.googleapis.com/";
             storage.create(blobInfo, file.getInputStream());
-            return "https://storage.googleapis.com/" + bucketName + "/" + fileName;
+            return prefix + bucketName + "/" + fileName;
         } catch (IOException e) {
             throw new RuntimeException("Failed to upload file", e);
         }
