@@ -120,7 +120,7 @@ public class CardController {
         cardService.deleteCard(UUID.fromString(tokenInfo.id()), cardNumber);
 
     }
-    @PutMapping("/account")
+    @DeleteMapping("/account")
     public void deleteAccountCard(
             @RequestHeader("Authorization") String bearerToken,
             @RequestParam("account") String account
@@ -130,11 +130,11 @@ public class CardController {
         cardService.deleteCardFromAccount(UUID.fromString(tokenInfo.id()), account);
 
     }
-
 }
 //    @DeleteMapping()
 //    public void deleteCardFromAccount
 //}
+
 
 
     // TODO getMyCard()로 대체
