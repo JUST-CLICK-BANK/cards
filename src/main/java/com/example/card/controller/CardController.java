@@ -26,7 +26,7 @@ public class CardController {
     private final CardService cardService;
     private final JwtUtils jwtUtils;
 
-//    @CrossOrigin(origins = "http://35.239.149.187:8080")
+    //    @CrossOrigin(origins = "http://35.239.149.187:8080")
     @QueryMapping(name = "getAllMyCard")
     public List<Card> getAllMyCard(GraphQLContext context) {
         String bearerToken = context.get("Authorization");
@@ -35,14 +35,14 @@ public class CardController {
         return cardService.getAllMyCard(tokenInfo);
     }
 
-//    @CrossOrigin(origins = "http://35.239.149.187:8080")
+    //    @CrossOrigin(origins = "http://35.239.149.187:8080")
     @QueryMapping(name = "getMyCard")
     public Card getMyCard(@Argument(name = "cardId") Long cardId) {
         return cardService.getMyCard(cardId);
     }
 
     @GetMapping("/pay/{cardId}")
-    public Boolean getAbleMycard (@PathVariable Long cardId){
+    public Boolean getAbleMycard(@PathVariable Long cardId) {
         return cardService.getAbleMyCard(cardId);
     }
 
@@ -118,7 +118,19 @@ public class CardController {
         cardService.deleteCard(UUID.fromString(tokenInfo.id()), cardNumber);
 
     }
+    @DeleteMapping("/account")
+    public void deleteAccountCard(@RequestHeader("Authorization") String bearerToken,
+                           @RequestParam("account") String account) {
+        String token = bearerToken.substring(7);
+        TokenInfo tokenInfo = jwtUtils.parseUserToken(token);
+        cardService.deleteCardFromAccount(UUID.fromString(tokenInfo.id()), account);
+
+    }
+
 }
+//    @DeleteMapping()
+//    public void deleteCardFromAccount
+//}
 
 
     // TODO getMyCard()로 대체

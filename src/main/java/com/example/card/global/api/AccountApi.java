@@ -11,8 +11,8 @@ public class AccountApi {
     private final AccountFeign accountFeign;
 
     @Async
-    public AccountFeignResponse getAccount(String account) {
-        return accountFeign.getAccountAccountAble(account);
+    public String getAccount(String account) {
+        return accountFeign.deleteAccount(account);
     }
 
 
