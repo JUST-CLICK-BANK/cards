@@ -25,6 +25,8 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     @Query("SELECT c FROM Card c WHERE c.cardId = :cardId AND c.cardAble = true")
     Optional<Card> findDisabledCardByCardId(@Param("cardId") long cardId);
 
-
+    // account를 통해서 List<Card> 로 가져오는 jpa 이용 findBy~~
+    @Query("SELECT c FROM Card c WHERE c.account = :account")
+    List<Card> findByAccount(@Param("account") String account);
 
 }
