@@ -11,9 +11,6 @@ public class AppConfig {
         return new ObjectMapper();
     }
 
-//    @Bean
-//    public ObjectMapper endpointObjectMapper() {
-//        return new ObjectMapper();
-//    }
+
 
 }

@@ -31,9 +31,6 @@ public class CardProduct {
     @Column(name = "CARD_BENEFITS")
     private String cardBenefits;
 
-//    @Column(name = "CARD_BRAND")
-//    @Enumerated(EnumType.STRING)
-//    private CardBrand cardBrand;
 
 
 }

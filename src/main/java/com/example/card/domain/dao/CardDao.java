@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface CardDao {
     void saveCard(CardRequest req, String cardNumber, UUID userId, String cardCVC, Date cardCreatedAt, TokenInfo tokenInfo);
     boolean compareCard(String generatedCardNumber);
-//    void deleteCard(UUID userId, String cardNumber);
+
 
     Card getCard(String cardNumber);
 }

@@ -26,7 +26,6 @@ public class CardController {
     private final CardService cardService;
     private final JwtUtils jwtUtils;
 
-    //    @CrossOrigin(origins = "http://35.239.149.187:8080")
     @QueryMapping(name = "getAllMyCard")
     public List<Card> getAllMyCard(GraphQLContext context) {
         String bearerToken = context.get("Authorization");
@@ -35,7 +34,7 @@ public class CardController {
         return cardService.getAllMyCard(tokenInfo);
     }
 
-    //    @CrossOrigin(origins = "http://35.239.149.187:8080")
+
     @QueryMapping(name = "getMyCard")
     public Card getMyCard(@Argument(name = "cardId") Long cardId) {
         return cardService.getMyCard(cardId);
@@ -131,18 +130,4 @@ public class CardController {
 
     }
 }
-//    @DeleteMapping()
-//    public void deleteCardFromAccount
-//}
 
-
-
-    // TODO getMyCard()로 대체
-    //카드 아이디로 카드이름,카드상품 이미지,카드번호,계좌 번호(MyCardInformation페이지)
-//     @GetMapping("/{cardId}")
-//     public Optional<CardProductCardResponse> getCardProduct(@PathVariable long cardId) {
-//             CardProductCardResponse cardProductCardResponse = cardService.getCardCardProductByCardID(cardId);
-//             return Optional.ofNullable(cardProductCardResponse);
-//     }
-
-//}

@@ -86,7 +86,7 @@ public class Card {
         this.cardMonthLimit = cardMonthLimit;
         this.cardName = cardName;
         this.cardPaymentDate = cardPaymentDate;
-//        this.cardNumber = cardNumber;
+
     }
 
     public void updateCardPassword(String cardPassword){
