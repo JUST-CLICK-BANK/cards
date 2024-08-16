@@ -5,12 +5,9 @@ import com.example.card.config.utils.card.GenerateCardNumber;
 import com.example.card.config.utils.jwt.TokenInfo;
 import com.example.card.domain.dao.CardDao;
 import com.example.card.domain.dto.request.*;
-//import com.example.card.domain.dto.response.AccountFeignResponse;
 import com.example.card.domain.dto.response.CardProductCardResponse;
 import com.example.card.domain.entity.Card;
-import com.example.card.domain.repository.CardRepository;
-//import com.example.card.global.api.AccountApi;
-//import com.example.card.global.api.AccountFeign;
+import com.example.card.domain.repository.CardRepository;;
 import jakarta.persistence.EntityNotFoundException;
 
 import java.util.*;
@@ -33,11 +30,8 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public void deleteCardFromAccount(UUID userId,String account){
-        // List<Card> 를 가져옴
         List<Card> cards = cardRepository.findByAccount(account);
         cards.forEach(card -> card.setCardAble(false));
-
-        // 가져온 다음에 false로 만듬 예를 들어 .forEach .stream.map() 사용
         cardRepository.saveAll(cards);
     }
     @Override

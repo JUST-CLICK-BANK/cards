@@ -14,9 +14,7 @@ public interface CardService {
     void updateCard(UUID userId,long cardId, CardUpdateRequest req);
     void deleteCard(UUID userId, String cardNumber);
     CardProductCardResponse getCardCardProductByCardID(long cardId);
-//    CardResponse getCard(long cardId);
     List<Card> getAllMyCard(TokenInfo tokenInfo);
-//    String getCardByCardID(long cardId);
     Card getMyCard(Long cardId);
     void updateCardPassword(UUID userId,long cardId, CardPasswordRequest req);
     void updateCardName(UUID userId,long cardId, CardNameRequest req);

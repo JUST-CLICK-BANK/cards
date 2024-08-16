@@ -16,6 +16,16 @@ spring:
           location: classpath:gcs.json
         project-id: vibrant-depth-424101-m7
         bucket: cardimg_bucket
+    aws:
+      s3:
+        bucket: click-card
+      credentials:
+        accessKey:
+        secretKey:
+      region:
+        static: ap-northeast-2
+      stack:
+        auto: false
 
 
   graphql:

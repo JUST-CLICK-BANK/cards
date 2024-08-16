@@ -29,13 +29,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-//@RequiredArgsConstructor
+
 public class CardProductServiceImpl implements  CardProductService{
     private final CardProductRepository cardProductRepository;
-//    private final Storage storage;
-//    private final CardProductRepository cardProductRepository;
-//    private final String BUCKET_NAME = "cardimg_bucket"; // 버킷 이름
-//    private final Storage storage = StorageOptions.getDefaultInstance().getService();
+
 private final Storage storage;
     private final String bucketName;
 
@@ -62,7 +59,7 @@ private final Storage storage;
         MultipartFile cardImg = req.cardImg();
         if (cardImg != null && !cardImg.isEmpty()) {
             String imgUrl = uploadFile(cardImg);
-            cardProduct.setCardImg(imgUrl); // 이미지 URL을 엔티티에 설정
+            cardProduct.setCardImg(imgUrl);
         }
          cardProductRepository.save(cardProduct);
 
@@ -91,12 +88,7 @@ private final Storage storage;
         return cardProductRepository.findAllCardImages();
     }
 
-//    @Override
-//    public CardProductResponse getCardNameCardImgCardAnnualFeeCardBenefitByCardID(long cardProductId) {
-//        CardProduct cardProduct = cardProductRepository.findCardProductByCardProductId(cardProductId)
-//                .orElseThrow(() -> new RuntimeException("Card product not found"));
-//        return CardProductResponse.from(cardProduct);
-//    }
+
     @Override
     public CardProductResponse getCardNameCardImgCardAnnualFeeCardBenefitByCardID(long cardProductId) {
         CardProduct cardProduct = cardProductRepository.findCardProductByCardProductId(cardProductId)

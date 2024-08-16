@@ -13,7 +13,7 @@ public interface CardProductService {
     void deleteCardProduct(long cardProductId);
     String getCardImgBycardID(long cardProductId);
     List<String> getAllCardImages();
-//    List<CardProduct> getAllCardProducts()
+
     CardProductResponse getCardNameCardImgCardAnnualFeeCardBenefitByCardID(long cardProductId);
 
     List<CardProduct> getAllCardProduct();
