@@ -13,7 +13,8 @@ spring:
     gcp:
       storage:
         credentials:
-          location: classpath:gcs.json
+#          location: classpath:gcs.json
+           loscation: file:/home/imseoyeon0305/click-helm/click-card/charts/card/springboot-storage-key.json
         project-id: vibrant-depth-424101-m7
         bucket: cardimg_bucket
     aws:
