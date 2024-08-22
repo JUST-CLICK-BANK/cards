@@ -13,10 +13,10 @@ spring:
     gcp:
       storage:
         credentials:
-#          location: classpath:gcs.json
-           loscation: file:/home/imseoyeon0305/click-helm/click-card/charts/card/springboot-storage-key.json
-        project-id: vibrant-depth-424101-m7
-        bucket: cardimg_bucket
+          location: classpath:gcs.json
+#           loscation: file:/home/imseoyeon0305/click-helm/click-card/charts/card/springboot-storage-key.json
+        project-id: prefab-faculty-433201-s7
+        bucket: card-product
     aws:
       s3:
         bucket: click-card
