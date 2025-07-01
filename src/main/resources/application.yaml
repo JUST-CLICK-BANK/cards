@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: card
+  datasource:
+    url: jdbc:postgresql://localhost:5432/click?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:gcs.json
+#           loscation: file:/home/imseoyeon0305/click-helm/click-card/charts/card/springboot-storage-key.json
+        project-id: prefab-faculty-433201-s7
+        bucket: card-product
+    aws:
+      s3:
+        bucket: click-card
+      credentials:
+        accessKey:
+        secretKey:
+      region:
+        static: ap-northeast-2
+      stack:
+        auto: false
+
+
+  graphql:
+    servlet:
+      path: /graphql
+    tools:
+      schema-location-pattern: classpath:graphql/**/*.graphqls
+    graphiql:
+      endpoint: /graphiql
+      enabled: true
+
+
+jwt:
+  secret: thisispublickeythisispublickeythisispublickeythisispublickey
+hash:
+  iterations: 128
+
+#  expiration: 86400000
+
+
+
+
+
